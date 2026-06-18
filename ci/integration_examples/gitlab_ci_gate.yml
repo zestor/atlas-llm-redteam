@@ -1,0 +1,50 @@
+# AI Security Gate — GitLab CI
+#
+# GitLab equivalent of github_actions_gate.yml. Runs the ATLAS-tagged scanner
+# on merge requests, fails the pipeline on HIGH/CRITICAL findings, and stores
+# the report as a pipeline artifact.
+#
+# ATLAS: AML.T0051 + suite | OWASP: LLM01-LLM10
+#
+# Provide AI_ENDPOINT and AI_API_KEY as masked CI/CD variables.
+
+stages:
+  - ai-security
+
+ai_security_gate:
+  stage: ai-security
+  image: python:3.11-slim
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main"
+  before_script:
+    - python -m pip install --upgrade pip
+    - pip install -r requirements.txt
+  script:
+    - |
+      python tools/scanner/atlas_scanner.py \
+        --target "$AI_ENDPOINT" \
+        --api-key "$AI_API_KEY" \
+        --scope "LLM01,LLM06,LLM07,LLM08" \
+        --output report.json
+    - |
+      python - <<'PY'
+      import json, sys
+      report = json.load(open("report.json"))
+      sev = report.get("summary", {}).get("by_severity", {})
+      blocking = sev.get("CRITICAL", 0) + sev.get("HIGH", 0)
+      print(f"AI Security Gate — total={report['summary'].get('total_findings',0)} "
+            f"CRITICAL={sev.get('CRITICAL',0)} HIGH={sev.get('HIGH',0)}")
+      if blocking:
+          print("Gate FAILED: HIGH/CRITICAL findings present.")
+          sys.exit(1)
+      print("Gate PASSED.")
+      PY
+  artifacts:
+    when: always
+    paths:
+      - report.json
+    expire_in: 30 days
+    reports:
+      # Surface as a generic report in the MR widget.
+      annotations: report.json

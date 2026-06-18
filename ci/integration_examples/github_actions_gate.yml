@@ -1,0 +1,82 @@
+# AI Security Gate — GitHub Actions
+#
+# Runs the ATLAS-tagged scanner on every PR, fails the build on HIGH/CRITICAL
+# findings, and posts the findings table as a PR comment.
+#
+# ATLAS: AML.T0051 + suite | OWASP: LLM01-LLM10
+#
+# Usage: copy to .github/workflows/ai-security-gate.yml in your product repo.
+# Provide AI_ENDPOINT and AI_API_KEY as repository secrets.
+
+name: AI Security Gate
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  adversarial-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install toolkit
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run ATLAS scanner
+        env:
+          AI_ENDPOINT: ${{ secrets.AI_ENDPOINT }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          python tools/scanner/atlas_scanner.py \
+            --target "$AI_ENDPOINT" \
+            --api-key "$AI_API_KEY" \
+            --scope "LLM01,LLM06,LLM07,LLM08" \
+            --output report.json
+
+      - name: Evaluate gate (fail on HIGH/CRITICAL)
+        id: gate
+        run: |
+          python - <<'PY'
+          import json, sys, os
+          report = json.load(open("report.json"))
+          sev = report.get("summary", {}).get("by_severity", {})
+          blocking = sev.get("CRITICAL", 0) + sev.get("HIGH", 0)
+          summary = report.get("summary", {})
+          with open("gate_comment.md", "w") as fh:
+              fh.write("## AI Security Gate Results\n\n")
+              fh.write(f"- Total findings: **{summary.get('total_findings', 0)}**\n")
+              fh.write(f"- CRITICAL: {sev.get('CRITICAL', 0)} | HIGH: {sev.get('HIGH', 0)} "
+                       f"| MEDIUM: {sev.get('MEDIUM', 0)}\n\n")
+              for f in report.get("findings", []):
+                  fh.write(f"- `{f['severity']}` **{f['owasp_category']}** "
+                           f"({f['atlas_technique']}) — {f['finding']}\n")
+          print(f"blocking={blocking}", file=open(os.environ['GITHUB_OUTPUT'], 'a'))
+          sys.exit(1 if blocking else 0)
+          PY
+
+      - name: Post findings comment
+        if: always()
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: gate_comment.md
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-security-report
+          path: report.json
