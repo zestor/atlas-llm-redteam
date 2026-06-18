@@ -1,0 +1,69 @@
+# ci/github_actions/ai-security-scan.yml
+# Canonical GitHub Actions workflow for AI security red team gate
+# Copy this to .github/workflows/ in any repo that exposes an AI endpoint
+name: AI Security Red Team
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    paths:
+      - 'prompts/**'
+      - 'system_prompts/**'
+      - 'rag_corpus/**'
+      - '**/*.jsonl'
+
+jobs:
+  adversarial-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install toolkit
+        run: pip install -r requirements.txt
+      - name: Run prompt injection suite
+        env:
+          AI_ENDPOINT: ${{ secrets.AI_ENDPOINT }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          python tools/scanner/atlas_scanner.py \
+            --endpoint "$AI_ENDPOINT" \
+            --scope LLM01,LLM07,LLM06 \
+            --fail-on-severity HIGH \
+            --output findings.json
+      - name: Generate ATLAS/OWASP report
+        if: always()
+        run: |
+          python tools/report_generator/generate_report.py \
+            --findings findings.json \
+            --output security-report.html
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-security-findings-${{ github.sha }}
+          path: |
+            findings.json
+            security-report.html
+      - name: Post PR comment
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let summary = 'AI Security scan completed.';
+            try {
+              const findings = JSON.parse(fs.readFileSync('findings.json', 'utf8'));
+              const critical = findings.filter(f => f.severity === 'CRITICAL').length;
+              const high = findings.filter(f => f.severity === 'HIGH').length;
+              const medium = findings.filter(f => f.severity === 'MEDIUM').length;
+              summary = `## AI Security Scan — atlas-llm-redteam\n\n| Severity | Count |\n|---|---|\n| 🔴 CRITICAL | ${critical} |\n| 🟠 HIGH | ${high} |\n| 🟡 MEDIUM | ${medium} |\n\nSee artifacts for full ATLAS Navigator + OWASP heat map report.`;
+            } catch(e) { summary += ' (no findings file)'; }
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
