@@ -1,0 +1,56 @@
+{
+  "name": "atlas-llm-redteam — Covered Techniques",
+  "versions": {
+    "layer": "4.5",
+    "navigator": "4.9.1",
+    "attack": "ATLAS v5.4.0"
+  },
+  "domain": "mitre-atlas",
+  "description": "Techniques with runnable exploit/scanner coverage in atlas-llm-redteam. Score = relative coverage depth (100 = full exploit + dataset + lab).",
+  "filters": {
+    "platforms": ["LLM", "Agent", "RAG", "MCP"]
+  },
+  "sorting": 3,
+  "layout": {
+    "layout": "side",
+    "showName": true,
+    "showID": true
+  },
+  "hideDisabled": false,
+  "gradient": {
+    "colors": ["#0d3d3d", "#1f9c9c", "#5ce0e0"],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {"label": "Full coverage (exploit + dataset + lab)", "color": "#5ce0e0"},
+    {"label": "Partial coverage (exploit or dataset)", "color": "#1f9c9c"},
+    {"label": "Documented only", "color": "#0d3d3d"}
+  ],
+  "techniques": [
+    {"techniqueID": "AML.T0051", "score": 100, "color": "#5ce0e0", "comment": "Prompt injection: exploit, datasets (direct+indirect), labs 01/02 — OWASP LLM01"},
+    {"techniqueID": "AML.T0051.000", "score": 100, "comment": "Direct prompt injection — datasets/prompt_injection/seed_direct.jsonl"},
+    {"techniqueID": "AML.T0051.001", "score": 100, "comment": "Indirect prompt injection — datasets/prompt_injection/seed_indirect.jsonl"},
+    {"techniqueID": "AML.T0054", "score": 100, "color": "#5ce0e0", "comment": "Jailbreak: persona/encoding/many-shot exploit + lab 05 — OWASP LLM01/LLM07"},
+    {"techniqueID": "AML.T0024", "score": 60, "color": "#1f9c9c", "comment": "Exfiltration via inference API — OWASP LLM02"},
+    {"techniqueID": "AML.T0020", "score": 100, "color": "#5ce0e0", "comment": "Training data poisoning / sleeper trigger — labs 07/09 — OWASP LLM04"},
+    {"techniqueID": "AML.T0043", "score": 80, "color": "#1f9c9c", "comment": "Adversarial examples / GCG — lab 11 — OWASP LLM01"},
+    {"techniqueID": "AML.T0044", "score": 80, "color": "#1f9c9c", "comment": "Model extraction — lab 06 — OWASP LLM10"},
+    {"techniqueID": "AML.T0093", "score": 100, "color": "#5ce0e0", "comment": "RAG poisoning — phantom injector + dataset + lab 03 — OWASP LLM08"},
+    {"techniqueID": "AML.T0094", "score": 60, "color": "#1f9c9c", "comment": "False RAG entry injection — OWASP LLM08"},
+    {"techniqueID": "AML.T0095", "score": 60, "color": "#1f9c9c", "comment": "Retrieval content crafting — OWASP LLM08"},
+    {"techniqueID": "AML.T0048", "score": 80, "color": "#1f9c9c", "comment": "Agent hijacking / external harms — OWASP LLM05/LLM06"},
+    {"techniqueID": "AML.T0058", "score": 100, "color": "#5ce0e0", "comment": "Agent context poisoning — goal hijacker + lab 04 — OWASP LLM06"},
+    {"techniqueID": "AML.T0061", "score": 80, "color": "#1f9c9c", "comment": "LLM plugin / tool compromise — chord_scanner + lab 10 — OWASP LLM06"},
+    {"techniqueID": "AML.T0062", "score": 60, "color": "#1f9c9c", "comment": "MCP channel attacks / hallucination discovery — mcp_threat_harness — OWASP LLM06/LLM09"},
+    {"techniqueID": "AML.T0010", "score": 60, "color": "#1f9c9c", "comment": "ML supply chain compromise — case study + LLM05 scanner — OWASP LLM03"},
+    {"techniqueID": "AML.T0034", "score": 40, "color": "#0d3d3d", "comment": "Cost harvesting / denial-of-wallet — OWASP LLM10"}
+  ],
+  "metadata": [
+    {"name": "toolkit", "value": "atlas-llm-redteam"},
+    {"name": "owasp_edition", "value": "LLM Top 10 2025"}
+  ],
+  "showTacticRowBackground": true,
+  "tacticRowBackground": "#0d1117",
+  "selectTechniquesAcrossTactics": true
+}
