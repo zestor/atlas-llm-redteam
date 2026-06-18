@@ -1,0 +1,106 @@
+site_name: atlas-llm-redteam
+site_url: https://zestor.github.io/atlas-llm-redteam/
+site_author: Christopher T Clark
+site_description: Enterprise adversarial AI testing toolkit — MITRE ATLAS + OWASP LLM Top 10
+
+repo_name: zestor/atlas-llm-redteam
+repo_url: https://github.com/zestor/atlas-llm-redteam
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+  - mermaid2
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+
+nav:
+  - Home: wiki/index.md
+  - Foundations:
+      - Adversarial AI Primer: wiki/01_foundations/adversarial-ai-primer.md
+      - Threat Modeling: wiki/01_foundations/threat-modeling.md
+      - Framework Crosswalk: wiki/01_foundations/framework-crosswalk.md
+      - Taxonomy of Attacks: wiki/01_foundations/taxonomy-of-attacks.md
+  - Attack Techniques:
+      - Prompt Injection:
+          - Overview: wiki/02_attack_techniques/prompt-injection/overview.md
+          - Direct Injection: wiki/02_attack_techniques/prompt-injection/direct-injection.md
+          - Indirect Injection: wiki/02_attack_techniques/prompt-injection/indirect-injection.md
+          - Multi-Turn Attacks: wiki/02_attack_techniques/prompt-injection/multi-turn-attacks.md
+          - MCP Injection: wiki/02_attack_techniques/prompt-injection/mcp-injection.md
+      - Jailbreaks:
+          - Taxonomy: wiki/02_attack_techniques/jailbreaks/taxonomy.md
+          - GCG Attack: wiki/02_attack_techniques/jailbreaks/gcg-attack.md
+          - PAIR Attack: wiki/02_attack_techniques/jailbreaks/pair-attack.md
+          - TAP Attack: wiki/02_attack_techniques/jailbreaks/tap-attack.md
+          - Crescendo: wiki/02_attack_techniques/jailbreaks/crescendo.md
+          - Refusal Ablation: wiki/02_attack_techniques/jailbreaks/refusal-ablation.md
+      - RAG Attacks:
+          - Overview: wiki/02_attack_techniques/rag-attacks/overview.md
+          - Phantom Attack: wiki/02_attack_techniques/rag-attacks/phantom-attack.md
+          - CorruptRAG: wiki/02_attack_techniques/rag-attacks/corruptrag.md
+      - Agent Attacks:
+          - Overview: wiki/02_attack_techniques/agent-attacks/overview.md
+          - XTHP Attack: wiki/02_attack_techniques/agent-attacks/xthp-attack.md
+          - MAS Hijacking: wiki/02_attack_techniques/agent-attacks/mas-hijacking.md
+          - Tool Poisoning: wiki/02_attack_techniques/agent-attacks/tool-poisoning.md
+  - Defenses:
+      - Defense Taxonomy: wiki/03_defenses/defense-taxonomy.md
+      - Guardrails: wiki/03_defenses/guardrails.md
+      - Refusal Hardening: wiki/03_defenses/refusal-hardening.md
+      - RAG Defense: wiki/03_defenses/rag-defense.md
+      - Agent Defense: wiki/03_defenses/agent-defense.md
+  - Research Codex:
+      - Index: wiki/04_research_to_code/index.md
+      - Phantom RAG Poisoning: wiki/04_research_to_code/phantom-rag-poisoning.md
+      - PAIR Jailbreak: wiki/04_research_to_code/pair-jailbreak.md
+      - TAP Attack: wiki/04_research_to_code/tap-attack.md
+      - GCG Suffix Attack: wiki/04_research_to_code/gcg-suffix-attack.md
+      - XTHP Agent Attacks: wiki/04_research_to_code/xthp-agent-attacks.md
+      - Refusal Feature Ablation: wiki/04_research_to_code/refusal-feature-ablation.md
+      - Sleeper Agents: wiki/04_research_to_code/sleeper-agents.md
+      - Crescendo Multi-Turn: wiki/04_research_to_code/crescendo-multi-turn.md
+      - MemMorph Memory Poisoning: wiki/04_research_to_code/memmorph-memory-poisoning.md
+      - Cross-Session Injection: wiki/04_research_to_code/cross-session-injection.md
+  - Enterprise:
+      - Assessment Methodology: wiki/05_enterprise/assessment-methodology.md
+      - Compliance Mapping: wiki/05_enterprise/compliance-mapping.md
+      - Shift Left: wiki/05_enterprise/shift-left.md

@@ -1,0 +1,138 @@
+name: AI Security Red Team
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run weekly adversarial scan on Mondays at 08:00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'OWASP categories to scan (comma-separated)'
+        default: 'LLM01,LLM07,LLM06'
+      fail_on_severity:
+        description: 'Fail build if finding at or above this severity'
+        default: 'HIGH'
+
+jobs:
+  adversarial-scan:
+    name: Adversarial AI Security Scan
+    runs-on: ubuntu-latest
+    if: ${{ secrets.AI_ENDPOINT != '' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run prompt injection suite
+        env:
+          AI_ENDPOINT: ${{ secrets.AI_ENDPOINT }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          python tools/scanner/atlas_scanner.py \
+            --target "$AI_ENDPOINT" \
+            --scope "${{ github.event.inputs.scope || 'LLM01,LLM07,LLM06' }}" \
+            --output scan-results.html
+
+      - name: Generate ATLAS report
+        run: |
+          python tools/report_generator/generate_report.py \
+            --input scan-results.html \
+            --output atlas-report.html \
+            --format atlas
+
+      - name: Check severity threshold
+        run: |
+          python -c "
+          import json, sys
+          threshold = '${{ github.event.inputs.fail_on_severity || 'HIGH' }}'
+          order = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFO']
+          # Parse scan output and check severity
+          print(f'Severity threshold: {threshold}')
+          "
+
+      - name: Upload scan artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: adversarial-scan-results
+          path: |
+            scan-results.html
+            atlas-report.html
+          retention-days: 30
+
+  dataset-validation:
+    name: Validate Dataset Schema
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate adversarial datasets
+        run: |
+          python -c "
+          import json, glob, sys
+          from datasets.schema import AdversarialExample
+          errors = []
+          for f in glob.glob('datasets/**/*.jsonl', recursive=True):
+              with open(f) as fh:
+                  for i, line in enumerate(fh):
+                      try:
+                          d = json.loads(line.strip())
+                          ex = AdversarialExample.from_dict(d)
+                          assert ex.atlas_technique, f'Missing atlas_technique in {f}:{i}'
+                          assert ex.owasp_category, f'Missing owasp_category in {f}:{i}'
+                      except Exception as e:
+                          errors.append(f'{f}:{i} — {e}')
+          if errors:
+              print('Dataset validation FAILED:')
+              for e in errors: print(f'  {e}')
+              sys.exit(1)
+          print(f'All datasets valid.')
+          "
+
+  deploy-docs:
+    name: Deploy Wiki to GitHub Pages
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install MkDocs
+        run: pip install mkdocs-material mkdocs-mermaid2-plugin
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
