@@ -1,26 +1,27 @@
 # Research-to-Code Codex Index
 
-> **716 entries** across 37 domains — MITRE ATLAS v5.4 + OWASP LLM Top 10 2025
+> **816 entries** across 40 domains — MITRE ATLAS v5.4 + OWASP LLM Top 10 2025
 
 ## Quick Navigation
 
-- [Prompt Injection](#prompt-injection) (42)
-- [Jailbreaks](#jailbreaks) (56)
-- [RAG & Retrieval](#rag-retrieval) (41)
-- [Multimodal](#multimodal) (27)
-- [Agent / MAS](#agent-mas) (81)
+- [Prompt Injection](#prompt-injection) (50)
+- [Jailbreaks](#jailbreaks) (60)
+- [RAG & Retrieval](#rag-retrieval) (45)
+- [Multimodal / Vision-Language](#multimodal-vision-language) (43)
+- [Agent / MAS](#agent-mas) (82)
 - [MCP Security](#mcp-security) (12)
 - [Tool / MCP / Browser](#tool-mcp-browser) (16)
 - [Memory / Long-Context](#memory-long-context) (14)
-- [Model Extraction](#model-extraction) (22)
-- [Membership Inference / Privacy](#membership-inference-privacy) (34)
-- [Supply Chain](#supply-chain) (23)
-- [Poisoning / Backdoor](#poisoning-backdoor) (62)
-- [Pretraining / Dataset Attacks](#pretraining-dataset-attacks) (7)
-- [Fine-Tuning Safety](#fine-tuning-safety) (12)
+- [Model Extraction](#model-extraction) (23)
+- [Privacy Attacks](#privacy-attacks) (33)
+- [Membership Inference](#membership-inference) (23)
+- [Supply Chain](#supply-chain) (24)
+- [Poisoning / Backdoor](#poisoning-backdoor) (64)
+- [Pretraining / Dataset Attacks](#pretraining-dataset-attacks) (8)
+- [Fine-Tuning Safety](#fine-tuning-safety) (13)
 - [Alignment Failures](#alignment-failures) (22)
-- [RLHF / Reward](#rlhf-reward) (18)
-- [Unlearning / Copyright](#unlearning-copyright) (14)
+- [RLHF / Reward](#rlhf-reward) (19)
+- [Unlearning / Copyright](#unlearning-copyright) (16)
 - [Hallucination Attacks](#hallucination-attacks) (18)
 - [Calibration / Uncertainty](#calibration-uncertainty) (4)
 - [Multilingual / Cross-lingual](#multilingual-cross-lingual) (17)
@@ -28,6 +29,8 @@
 - [Misinformation / Deepfakes](#misinformation-deepfakes) (4)
 - [LLM-Assisted Cyberattacks](#llm-assisted-cyberattacks) (22)
 - [Inference Attacks](#inference-attacks) (5)
+- [Enterprise LLM Security](#enterprise-llm-security) (17)
+- [Evaluation Attacks](#evaluation-attacks) (18)
 - [Formal Methods / Game Theory](#formal-methods-game-theory) (19)
 - [Adversarial NLP / Text Attacks](#adversarial-nlp-text-attacks) (13)
 - [Adversarial Robustness](#adversarial-robustness) (10)
@@ -40,7 +43,7 @@
 - [Red Team Methodology](#red-team-methodology) (6)
 - [Security in Regulated Environments](#security-in-regulated-environments) (1)
 - [Model Merging / MoE](#model-merging-moe) (2)
-- [Other](#other) (6)
+- [Other](#other) (7)
 
 ## Prompt Injection
 
@@ -61,6 +64,7 @@
 | [Formal Language-Theoretic Model of Prompt Injection — Context-Free Grammar Attacks and Parse Tree Manipulation](./formal-model-prompt-injection.md) | AML.T0051 | LLM01 |
 | [Prompt Injection Attacks Against LLM-Integrated Applications — Goal Hijacking & Prompt Leakage](./goal-hijacking-prompt-leakage.md) | AML.T0051 | LLM01 |
 | [Ignore Previous Prompt: Foundational Prompt Injection via Instruction Override](./ignore-previous-prompt-perez.md) | AML.T0051 | LLM01 |
+| [Images Containing Rendered Text Used to Extract System Prompt Contents from VLMs](./image-based-prompt-leak.md) | AML.T0051 | LLM07 |
 | [Indirect Prompt Injection in Multimodal LLMs via Adversarial Image Content](./indirect-injection-multimodal-vision-llm.md) | AML.T0051 | LLM01 |
 | [Injecting Relevance: Indirect Prompt Injection via RAG Retrieved Documents](./indirect-injection-retrieval-augmented.md) | AML.T0093 | LLM08 |
 | [Indirect Prompt Injection — Hijacking LLMs Through External Content](./indirect-prompt-injection-agents.md) | AML.T0051 | LLM01 |
@@ -68,24 +72,31 @@
 | [Indirect Prompt Injection Attacks on LLM-Based Agents in the Wild](./ipi-indirect-prompt-injection-applications.md) | AML.T0051 | LLM01 |
 | [KV-Cache Poisoning — Malicious Token Injection into Shared Key-Value Cache in Multi-Tenant LLM Serving](./kv-cache-poisoning.md) | AML.T0051 | LLM01 |
 | [KV Cache Poisoning: Persistent Context Manipulation via Cached Prefix Exploitation](./kv-cache-poisoning-attack.md) | AML.T0051 | LLM04 |
+| [LLM-as-Judge Prompt Injection — Manipulating Automated Evaluation Scores via Injected Instructions](./llm-judge-prompt-injection.md) | AML.T0051 | LLM01 |
+| [LLM Prompt Injection in ERP Systems — Financial Fraud via Prompt Injection Against SAP and Oracle LLM Integrations](./llm-prompt-injection-erp.md) | AML.T0051 | LLM01 |
 | [Multi-Agent Prompt Injection — Attack Strategies Across Agent Communication Layers](./multi-agent-prompt-injection.md) | AML.T0051 | LLM01 |
 | [Multilingual Prompt Injection — Indirect Injection Payloads in Non-English Languages Evade English-Trained Classifiers](./multilingual-prompt-injection.md) | AML.T0051 | LLM01 |
 | [Multilingual System Prompt Extraction — Extracting English System Prompts via Languages with Weaker Instruction-Following Training](./multilingual-system-prompt-extraction.md) | AML.T0054 | LLM07 |
 | [Narrative Injection Attack — Subtle Framing Shifts in Retrieved and Generated Content](./narrative-injection-attack.md) | AML.T0051 | LLM09 |
+| [PII in System Prompts Extraction: Adversarial System Prompt Leakage](./pii-in-system-prompts-extraction.md) | AML.T0051 | LLM07 |
 | [Prefix Injection and Completion Attack Jailbreaks](./prefix-injection-completion-attacks.md) | AML.T0054 | LLM01 |
 | [Prompt Injection Attacks in Agentic AI — A Comprehensive Survey](./prompt-injection-agentic-survey.md) | AML.T0051 | LLM01 |
 | [Prompt Injection Attacks on Email and Calendar LLM Assistants](./prompt-injection-email-assistants.md) | AML.T0048 | LLM06 |
 | [Prompt Injection via Poisoned In-Context Demonstrations](./prompt-injection-poisoned-demonstrations.md) | AML.T0020 | LLM04 |
 | [Prompt Injection via Poisoned Pretraining Data](./prompt-injection-pretraining.md) | AML.T0020 | LLM04 |
+| [Prompt Injection Privacy Leak: Targeting Privacy-Sensitive Context Fields](./prompt-injection-privacy-leak.md) | AML.T0051 | LLM02 |
 | [Prompt Injection for Privacy Theft: Exfiltrating User Data via Embedded Instructions](./prompt-injection-privacy-theft.md) | AML.T0051 | LLM02 |
 | [Prompt Injection in RLHF-Aligned Instruction-Following Models](./prompt-injection-rlhf-instruct.md) | AML.T0051 | LLM01 |
 | [Protocol-Level Injection — Exploiting LLM Agent Communication Protocols](./protocol-level-injection.md) | AML.T0051 | LLM01 |
+| [QR Codes Encoding Adversarial Instructions That Hijack LLM Agents Scanning via Camera](./qr-code-prompt-injection.md) | AML.T0051 | LLM01 |
 | [RAG Context Window Overflow — Exploiting LLM Attention Degradation in Long Contexts](./rag-context-window-overflow.md) | AML.T0095 | LLM10 |
 | [RAG System Prompt Extraction — Exfiltrating Configuration via Retrieval](./rag-system-prompt-extraction.md) | AML.T0044 | LLM07 |
 | [RoPE Positional Exploit — Exploiting RoPE Edge Cases to Confuse Long-Context Models About Token Position](./rope-positional-exploit.md) | AML.T0051 | LLM01 |
+| [Instructions Hidden in Images via Steganography: Invisible to Humans, Readable by VLMs](./steganographic-payload-vlm.md) | AML.T0051 | LLM01 |
 | [System Prompt Extraction: Attacks and Defenses for LLM Confidentiality](./system-prompt-extraction-attacks.md) | AML.T0051 | LLM07 |
 | [System Prompt Hardening — Best Practices for LLM Instruction Resilience](./system-prompt-hardening.md) | AML.T0051 | LLM07 |
 | [System Prompt Leakage: Extracting Confidential Instructions from LLM Deployments](./system-prompt-leakage.md) | AML.T0024 | LLM07 |
+| [System Prompt Reconstruction via API — Differential Probing to Recover Hidden Instructions](./system-prompt-reconstruction-api.md) | AML.T0051 | LLM07 |
 | [Virtual Prompt Injection for Instruction-Tuned Large Language Models](./virtual-prompt-injection-tgt.md) | AML.T0020 | LLM04 |
 | [Visual Prompt Injection via Screenshots — Adversarial Text in Images Targeting Multimodal Agents](./visual-prompt-injection-screenshot.md) | AML.T0051 | LLM01 |
 
@@ -98,6 +109,8 @@
 | [GCG Adversarial Suffix Transfer: Universal Jailbreaks via Greedy Coordinate Gradient](./adversarial-suffix-gcg-transfer.md) | AML.T0054 | LLM01 |
 | [AmpleGCG: Learning a Universal and Transferable Generative Model of Adversarial Suffixes](./amplified-gcg-ample-gcg.md) | AML.T0054 | LLM01 |
 | [The Art of Jailbreaking: A Taxonomy of Harmful Prompt Patterns](./art-of-jailbreak-taxonomy.md) | AML.T0054 | LLM01 |
+| [ASCII Art and Unicode Art Representations of Prohibited Content Bypassing VLM Text Safety Filters](./ascii-art-jailbreak.md) | AML.T0054 | LLM01 |
+| [Adversarial Audio Perturbations Injecting Hidden Instructions into Speech-to-Text LLM Pipelines](./audio-adversarial-llm-injection.md) | AML.T0051 | LLM01 |
 | [AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models](./autodan-automated-jailbreak-generation.md) | AML.T0054 | LLM01 |
 | [Bad Likert Judge: Exploiting LLM-as-Judge Architectures for Jailbreaking](./bad-likert-judge-jailbreak.md) | AML.T0054 | LLM01 |
 | [Encoding Attacks: Base64, ROT13, and Obfuscated Payloads for LLM Safety Bypass](./base64-encoding-bypass-llm.md) | AML.T0054 | LLM01 |
@@ -123,6 +136,7 @@
 | [GCG: Greedy Coordinate Gradient Adversarial Suffixes](./gcg-adversarial-suffix.md) | AML.T0043 | LLM01 |
 | [Harmful Content Generation Evasion — Technical Analysis of Content Policy Filter Bypass Techniques](./harmful-content-generation-evasion.md) | AML.T0054 | LLM01 |
 | [Hypothetical Framing and Thought Experiment Jailbreaks](./hypothetical-framing-jailbreak.md) | AML.T0054 | LLM01 |
+| [Visual Prompt Injection via Adversarial Images Bypassing Text-Based Safety Filters in VLMs](./image-jailbreak-visual-prompt.md) | AML.T0051 | LLM01 |
 | [JailbreakBench — A Standardized Evaluation Framework for LLM Jailbreaking](./jailbreakbench-benchmark.md) | AML.T0054 | LLM01 |
 | [Jailbroken: How Does LLM Safety Training Fail?](./jailbroken-gpt4-safety-failures.md) | AML.T0054 | LLM01 |
 | [Long Chain-of-Thought Jailbreaks — Safety Degradation in Extended Reasoning](./long-cot-jailbreaks.md) | AML.T0054 | LLM01 |
@@ -131,6 +145,7 @@
 | [Many-Shot Jailbreaking: Leveraging Long Context Windows to Bypass LLM Safety](./many-shot-jailbreaking.md) | AML.T0054 | LLM01 |
 | [Mechanistic Proof of Jailbreak — Formal Circuit-Level Proof That Certain Model Architectures Are Necessarily Jailbreakable](./mechanistic-proof-jailbreak.md) | AML.T0054 | LLM01 |
 | [Moral Reasoning Manipulation — Ethical Framing Attacks on LLM Safety](./moral-reasoning-manipulation-jailbreak.md) | AML.T0054 | LLM01 |
+| [Composite Multimodal Jailbreak: Benign Text + Adversarial Image Bypasses Safety Filters Neither Alone Defeats](./multimodal-jailbreak-composite.md) | AML.T0054 | LLM01 |
 | [PAIR: Prompt Automatic Iterative Refinement](./pair-jailbreak.md) | AML.T0054 | LLM01 |
 | [Paraphrase Obfuscation Jailbreaks — Semantic Rewriting to Evade Safety Classifiers](./paraphrase-obfuscation-jailbreak.md) | AML.T0054 | LLM01 |
 | [Do Anything Now (DAN) and Persona-Based Jailbreaks: A Systematic Study](./personas-dan-variants-jailbreaks.md) | AML.T0054 | LLM01 |
@@ -167,6 +182,8 @@
 | [Embedding Inversion Attacks on RAG — Reconstructing Private Text from Vectors](./embedding-inversion-rag-attack.md) | AML.T0044 | LLM02 |
 | [Embedding Model Poisoning — Corrupting Text Embeddings in RAG Semantic Search Pipelines](./embedding-model-poisoning.md) | AML.T0020 | LLM08 |
 | [Embedding Space Poisoning for Retrieval System Manipulation](./embedding-poisoning-retrieval.md) | AML.T0020 | LLM04 |
+| [Enterprise Knowledge Base Poisoning — Adversarial Content Injection into Confluence and SharePoint for Corporate LLM Deployment Compromise](./enterprise-knowledge-base-poison.md) | AML.T0094 | LLM08 |
+| [Enterprise RAG Data Exfiltration — Adversarial Retrieval Chaining to Extract Confidential Documents](./enterprise-rag-data-exfil.md) | AML.T0051 | LLM02 |
 | [Federated RAG Poisoning — Cross-Tenant Knowledge Base Contamination](./federated-rag-poisoning.md) | AML.T0093 | LLM08 |
 | [GARAG — Gradient-Based Adversarial Attack on RAG Systems](./garag-gradient-rag-attack.md) | AML.T0093 | LLM08 |
 | [Hybrid Retrieval Attacks — Exploiting Sparse-Dense Fusion in Production RAG](./hybrid-retrieval-attack-sparse-dense.md) | AML.T0093 | LLM08 |
@@ -177,6 +194,8 @@
 | [Membership Inference via RAG Outputs — Privacy Leakage Through Retrieval Signals](./membership-inference-rag-outputs.md) | AML.T0024 | LLM02 |
 | [Misinformation Seeding via RAG Poisoning — Poisoning Enterprise Knowledge Bases to Bias LLM Reports](./misinformation-seeding-rag.md) | AML.T0094 | LLM08 |
 | [Multi-Judge Aggregation — Ensemble Methods for Reliable LLM Safety Assessment](./multi-judge-aggregation.md) | AML.T0054 | LLM01 |
+| [Multi-Judge Disagreement Attack — Crafting Outputs to Maximize LLM Judge Disagreement](./multi-judge-disagreement-attack.md) | AML.T0047 | LLM09 |
+| [Poisoning Multimodal RAG Systems by Injecting Adversarial Images into the Knowledge Base](./multimodal-rag-image-poison.md) | AML.T0094 | LLM08 |
 | [OpenRAG Security — Open-Source Security Hardening for Production RAG Systems](./open-rag-sec.md) | AML.T0093 | LLM08 |
 | [Phantom: Query-Agnostic Document Injection into RAG Corpora](./phantom-rag-injection.md) | AML.T0093 | LLM08 |
 | [Poisoned-MRAG — Multimodal RAG Poisoning via Adversarial Image-Text Pairs](./poisoned-mrag-multimodal-rag.md) | AML.T0093 | LLM08 |
@@ -196,36 +215,52 @@
 | [Source Credibility Scoring — Trust-Weighted RAG for Adversarial Robustness](./source-credibility-scoring.md) | AML.T0093 | LLM08 |
 | [User Data Leakage in RAG Systems: Cross-User Privacy Extraction](./user-data-leakage-rag.md) | AML.T0024 | LLM02 |
 
-## Multimodal
+## Multimodal / Vision-Language
 
 | Entry | ATLAS | OWASP |
 |-------|-------|-------|
 | [Adversarial Patches for VLMs — Physical-World Trigger Attacks on Vision-Language Models](./adversarial-patch-vlm-attack.md) | AML.T0015 | LLM01 |
+| [Voice Cloning Attacks Using LLM-Assisted Audio Synthesis to Impersonate Executives](./audio-deepfake-voice-clone.md) | AML.T0047 | LLM09 |
 | [Audio Injection Attacks — Adversarial Speech Inputs for Voice-Enabled LLMs](./audio-injection-speech-llm.md) | AML.T0015 | LLM01 |
+| [Adversarial Chart and Graph Images Causing VLMs to Extract Incorrect Numerical Data](./chart-data-manipulation-vlm.md) | AML.T0047 | LLM09 |
 | [Circuit-Level Adversarial Patching: Mechanistic Jailbreak via Activation Intervention](./circuit-level-adversarial-patching.md) | AML.T0015 | LLM04 |
 | [Computer Use Exploitation — Attacking Anthropic Claude Computer Use and Similar Systems](./computer-use-exploitation.md) | AML.T0051 | LLM06 |
 | [Computer-Use Visual Prompt Injection — Adversarial Screen Content Hijacks Claude/GPT-4o Agents](./computer-use-injection.md) | AML.T0051 | LLM01 |
 | [Computer-Use Privilege Bypass: Exploiting System Dialog Automation](./computer-use-privilege-bypass.md) | AML.T0048 | LLM06 |
+| [Cross-Modal Injection: Adversarial Instructions in Images Override Text-Based Instructions](./cross-modal-injection-text-image.md) | AML.T0051 | LLM01 |
 | [Cross-Modal Transfer Attacks — Exploiting Shared Representations in Multimodal LLMs](./cross-modal-transfer-attack.md) | AML.T0015 | LLM01 |
 | [Deepfake Text Detection Evasion — Generating AI Text That Defeats All Current Detectors](./deepfake-text-detection-evasion.md) | AML.T0044 | LLM09 |
 | [Deepfake Video Script Generation — LLMs as the Text Layer in the Deepfake Attack Chain](./deepfake-video-script-llm.md) | AML.T0047 | LLM09 |
+| [Adversarial Content Hidden in Scanned Documents and PDFs Processed by Vision-Language Document AI](./document-image-injection.md) | AML.T0051 | LLM01 |
+| [Adversarial Face Images Causing VLMs to Misidentify Individuals or Bypass Face-Based Authentication](./face-recognition-llm-spoof.md) | AML.T0015 | LLM01 |
 | [HADES — Harmful Adversarial Examples for Defeating Safety in VLMs](./hades-adversarial-vision-attack.md) | AML.T0015 | LLM01 |
 | [Adversarial Manipulation of Image Captioning Models in Multimodal Pipelines](./image-captioning-manipulation.md) | AML.T0015 | LLM09 |
-| [LLM-Orchestrated Deepfake Social Engineering — CEO Fraud and Identity-Based Attacks](./llm-deepfake-social-attack.md) | AML.T0054 | LLM06 |
+| [Adversarial Perturbations on Medical Images Causing VLM Diagnostic Errors](./medical-image-adversarial-vlm.md) | AML.T0015 | LLM09 |
+| [Backdoors in VLMs Triggered by Specific Visual Patterns Activating Harmful Behavior](./multimodal-backdoor-trigger.md) | AML.T0020 | LLM04 |
 | [Backdoor Attacks on Vision-Language Models via Poisoned Image-Caption Pairs](./multimodal-backdoor-vlm.md) | AML.T0020 | LLM04 |
 | [Multimodal Context Hijacking — Exploiting Cross-Modal Attention in VLM Conversations](./multimodal-context-hijacking.md) | AML.T0054 | LLM01 |
 | [Multimodal Hallucination Amplification — Adversarial Triggering of VLM Confabulation](./multimodal-hallucination-amplification.md) | AML.T0015 | LLM09 |
 | [Multimodal Prompt Injection 2025 — Vision-Language Model Attack Surfaces](./multimodal-injection-2025.md) | AML.T0051 | LLM01 |
 | [Multimodal Injection via Desktop Notification Poisoning](./multimodal-injection-desktop.md) | AML.T0051 | LLM01 |
+| [Removing Digital Watermarks from AI-Generated Images via Adversarial Perturbation](./multimodal-watermark-removal.md) | AML.T0044 | LLM02 |
+| [Adversarial Text Rendering That Passes Human Reading but Causes OCR/VLM Misclassification](./ocr-adversarial-text-attack.md) | AML.T0015 | LLM01 |
 | [OCR Injection via Document Understanding — Exploiting Document VLMs and PDF Processors](./ocr-injection-document-vlm.md) | AML.T0051 | LLM01 |
 | [Screen Reading Data Leakage: Unintended Sensitive Data Capture by Computer-Use Agents](./screen-reading-data-leakage.md) | AML.T0024 | LLM02 |
 | [Screenshot and Screen-Content Injection for Computer-Use AI Agents](./screenshot-injection-computer-use.md) | AML.T0051 | LLM06 |
 | [Screenshot OCR Injection — Steganographic Text in Images Bypasses VLM Safety Filters via OCR Path](./screenshot-ocr-injection.md) | AML.T0051 | LLM01 |
 | [ShadowCast: Backdoor Attacks on Vision-Language Models via Shadow Poisoning](./shadowcast-backdoor-vlm.md) | AML.T0020 | LLM04 |
+| [Adversarial Sign Language Images Causing Sign-Language-Interpreting VLMs to Generate Harmful Outputs](./sign-language-vlm-attack.md) | AML.T0015 | LLM01 |
 | [Adversarial Audio Inputs for Speech-to-Text LLM Pipeline Injection](./speech-to-text-injection-llm.md) | AML.T0051 | LLM01 |
+| [Adversarial Patterns in Thermal/IR Spectrum Invisible to RGB Cameras but Effective Against Multimodal Surveillance LLMs](./thermal-infrared-adversarial.md) | AML.T0015 | LLM01 |
 | [Typographic Attacks on Vision Models — Text Overlays Override Visual Understanding](./typographic-attack-vision-models.md) | AML.T0015 | LLM01 |
+| [Adversarial Video Deepfakes Causing Video-Understanding Agents to Execute Attacker Actions](./video-deepfake-instruction-inject.md) | AML.T0047 | LLM09 |
+| [Single Adversarial Video Frames That Hijack Video-Understanding LLMs Processing Video Streams](./video-frame-injection-attack.md) | AML.T0051 | LLM01 |
 | [Vision Agent Hallucination Exploit — Adversarial Images Cause VLM Agents to Hallucinate UI Elements and Take Wrong Actions](./vision-agent-hallucination-exploit.md) | AML.T0015 | LLM06 |
 | [Visual Adversarial Examples for Multimodal LLMs: Image Perturbations Inducing Text Compliance](./visual-adversarial-multimodal.md) | AML.T0015 | LLM01 |
+| [Physical Adversarial Patches That Fool Vision-Language Models in Real-World Deployment](./vlm-adversarial-patch-physical.md) | AML.T0015 | LLM01 |
+| [Adversarial Images Crafted to Maximize VLM Hallucination Rates About Image Content](./vlm-hallucination-adversarial.md) | AML.T0047 | LLM09 |
+| [Adversarial Patches on Objects Cause VLM-Based Autonomous Systems to Misidentify Safety-Critical Objects](./vlm-object-detection-attack.md) | AML.T0015 | LLM06 |
+| [Vision-Language Models Extract and Leak Private Information Visible in Images](./vlm-privacy-extraction.md) | AML.T0024 | LLM02 |
 | [Voice Cloning + LLM Vishing — Combined Voice Deepfake and LLM Dialogue for Phone-Based Social Engineering](./voice-cloning-vishing-llm.md) | AML.T0051 | LLM09 |
 
 ## Agent / MAS
@@ -242,6 +277,7 @@
 | [Agent Task Interruption Attack — Mid-Task Injection via Environmental Content Causes Agents to Abandon Legitimate Tasks](./agent-task-interruption-attack.md) | AML.T0048 | LLM06 |
 | [AgentBench Adversarial — Evaluating LLM Agents Under Adversarial Conditions](./agentbench-adversarial.md) | AML.T0048 | LLM06 |
 | [AgentDojo — A Dynamic Environment for Evaluating Attacks and Defenses on LLM Agents](./agentdojo-benchmark.md) | AML.T0051 | LLM01 |
+| [Agentic Benchmark Gaming — LLM Agents Detecting Evaluation Environments and Behaving Differently](./agentic-benchmark-gaming.md) | AML.T0015 | LLM01 |
 | [API Key Exfiltration via LLM Agents — Agents with .env and Secrets Manager Access Manipulated to Leak Credentials](./api-key-exfiltration-agent.md) | AML.T0048 | LLM06 |
 | [AutoAgents Vulnerabilities — Security Analysis of Automated Agent Generation Systems](./autoagents-vulnerabilities.md) | AML.T0048 | LLM06 |
 | [Automated Social Engineering via LLM Agents — Autonomous Multi-Turn Manipulation](./automated-social-engineering-agent.md) | AML.T0048 | LLM06 |
@@ -385,6 +421,7 @@
 | [Inference Endpoint Fingerprinting — Identifying Model Version and Quantization Behind API via Output Statistics](./inference-endpoint-fingerprinting.md) | AML.T0044 | LLM02 |
 | [Knockoff Nets — Stealing Functionality of Black-Box Models](./knockoff-nets-stealing.md) | AML.T0044 | LLM02 |
 | [Dataset Inference Attacks on Language Models](./llm-dataset-inference-attack.md) | AML.T0024 | LLM02 |
+| [LLM Model Version Fingerprinting — Identifying Exact Model Versions Behind Enterprise APIs to Target Unpatched Vulnerabilities](./llm-model-version-fingerprint.md) | AML.T0044 | LLM02 |
 | [LLM Stealing via Output Distribution Matching — Carlini et al.](./llm-stealing-output-distribution.md) | AML.T0044 | LLM02 |
 | [Logit Lens Exploitation: Using Intermediate Predictions to Reverse-Engineer Safety Logic](./logit-lens-exploitation.md) | AML.T0044 | LLM02 |
 | [LoRA Weight Extraction — Adapter IP Theft via Targeted Black-Box Queries on Fine-Tuned Model APIs](./lora-weight-extraction.md) | AML.T0044 | LLM02 |
@@ -396,27 +433,58 @@
 | [Model Fingerprinting via Adversarial Examples — Proving IP Theft Through Model-Specific Adversarial Transferability](./model-fingerprinting-adversarial.md) | AML.T0044 | LLM03 |
 | [Model Inversion Attacks — Fredrikson et al.](./model-inversion-attack.md) | AML.T0044 | LLM02 |
 | [Neural Network Plagiarism Detection — Identifying Stolen Model Copies via Behavioral Fingerprinting](./nn-plagiarism-detection.md) | AML.T0044 | LLM03 |
-| [Output Logit Watermark Removal — Statistical Attacks to Remove LLM Watermarks Without Quality Loss](./output-logit-watermark-removal.md) | AML.T0044 | LLM02 |
+| [On-Device LLM Model Extraction via Hardware-Level Memory Analysis](./on-device-model-extraction.md) | AML.T0044 | LLM02 |
 
-## Membership Inference / Privacy
+## Privacy Attacks
+
+| Entry | ATLAS | OWASP |
+|-------|-------|-------|
+| [Aggregation-Level Attacks on Secure Aggregation in Federated LLM Training](./aggregation-attack-federated.md) | AML.T0024 | LLM02 |
+| [Biometric Data Reconstruction from LLM-Processed Sensor Data](./biometric-data-reconstruction.md) | AML.T0024 | LLM02 |
+| [Canary Insertion and Extraction: Empirical Privacy Auditing for LLMs](./canary-insertion-extraction.md) | AML.T0024 | LLM02 |
+| [Conversation History Reconstruction via Contextual Inference Attacks](./conversation-history-reconstruction.md) | AML.T0024 | LLM02 |
+| [Cross-User Data Leakage in Multi-Tenant LLM SaaS Deployments](./cross-user-data-leakage.md) | AML.T0024 | LLM02 |
+| [Differential Privacy Auditing Attack: Measuring True Privacy Leakage](./differential-privacy-auditing-attack.md) | AML.T0024 | LLM02 |
+| [Differential Privacy Auditing via Membership Inference](./differential-privacy-auditing-mia.md) | AML.T0024 | LLM02 |
+| [Differential Privacy Evasion via Canary Amplification — Defeating DP-SGD Privacy Guarantees Empirically](./dp-evasion-canary-amplification.md) | AML.T0024 | LLM02 |
+| [DP-SGD Evasion: Attacking Differential Privacy Protections in LLM Training](./dpsgd-evasion-attack.md) | AML.T0024 | LLM02 |
+| [Embedding Inversion Privacy Attack: Reconstructing Text from Embeddings](./embedding-inversion-privacy.md) | AML.T0024 | LLM02 |
+| [Embedding Inversion Attack — Reconstructing Private Text from Sentence Embeddings](./embedding-inversion-text-reconstruction.md) | AML.T0024 | LLM02 |
+| [Gradient Inversion Attacks on Federated LLM Training](./federated-learning-gradient-inversion.md) | AML.T0024 | LLM02 |
+| [Byzantine Client Attacks: Model Poisoning in Federated LLM Training](./federated-learning-model-poisoning.md) | AML.T0020 | LLM04 |
+| [Federated Learning Poisoning Attacks](./federated-learning-poisoning.md) | AML.T0020 | LLM04 |
+| [Financial Data Memorization: MNPI Leakage from LLMs Fine-Tuned on Financial Corpora](./financial-data-memorization.md) | AML.T0024 | LLM02 |
+| [Healthcare LLM PHI Extraction: Clinical Note Memorization Attacks](./healthcare-llm-phi-extraction.md) | AML.T0024 | LLM02 |
+| [Attacks on Homomorphic Encryption for Privacy-Preserving LLM Inference](./homomorphic-encryption-llm-attack.md) | AML.T0024 | LLM02 |
+| [Membership Inference Attacks on Fine-Tuned LLMs](./inference-attack-fine-tuned-llm.md) | AML.T0024 | LLM02 |
+| [Information-Theoretic Extraction Bounds — Lower Bounds on Training Data Leakage via LLM Queries](./information-theoretic-extraction-bounds.md) | AML.T0024 | LLM02 |
+| [Legal Document Memorization: Attorney-Client Privilege Leakage from Fine-Tuned LLMs](./legal-document-memorization.md) | AML.T0024 | LLM02 |
+| [LLM API Log Privacy: Re-identification from Provider Logging](./llm-api-log-privacy.md) | AML.T0024 | LLM02 |
+| [Counterfactual Memorization in Neural Language Models — Zhang et al.](./llm-privacy-copyrighted-memorization.md) | AML.T0024 | LLM02 |
+| [Location Inference from LLM Conversation Patterns](./location-inference-llm.md) | AML.T0024 | LLM02 |
+| [Auditing Differentially Private ML: Tight Privacy Accounting and Evasion Techniques](./privacy-auditing-differential.md) | AML.T0024 | LLM02 |
+| [Privacy Leakage During LLM Fine-Tuning](./privacy-leakage-llm-fine-tuning.md) | AML.T0024 | LLM02 |
+| [Property Inference Attack: Inferring Dataset-Level Properties from LLMs](./property-inference-attack.md) | AML.T0024 | LLM02 |
+| [RAG Private Document Extraction via Adversarial Retrieval Queries](./rag-private-document-extraction.md) | AML.T0051 | LLM02 |
+| [Side-Channel Attacks Against LLMs in TEEs (SGX, TrustZone)](./secure-enclaves-llm-sidechannel.md) | AML.T0024 | LLM02 |
+| [Sentence Embedding Inversion: Reconstructing Text from Embedding Vectors](./sentence-embedding-inversion.md) | AML.T0024 | LLM08 |
+| [Split Learning Label Inference Attack on LLM Intermediate Activations](./split-learning-label-inference.md) | AML.T0024 | LLM02 |
+| [Synthetic Data Re-identification: LLM-Generated Data Privacy Failures](./synthetic-data-reidentification.md) | AML.T0024 | LLM02 |
+| [User Behavior Inference from LLM Conversation History](./user-behavior-inference-llm.md) | AML.T0024 | LLM02 |
+| [Training Data Reconstruction from Model Weights — Gradient Inversion on Stored Parameters](./weight-based-data-reconstruction.md) | AML.T0024 | LLM02 |
+
+## Membership Inference
 
 | Entry | ATLAS | OWASP |
 |-------|-------|-------|
 | [Batch Inference Cross-Contamination — Cross-Request Information Leakage via Attention Bleed-Through](./batch-inference-cross-contamination.md) | AML.T0024 | LLM02 |
 | [Browser History Exfiltration via LLM Browser Agents](./browser-history-exfiltration.md) | AML.T0024 | LLM02 |
-| [Canary Insertion and Extraction: Empirical Privacy Auditing for LLMs](./canary-insertion-extraction.md) | AML.T0024 | LLM02 |
 | [Cross-Lingual Membership Inference — Inferring Training Language Distribution via Cross-Lingual Probing](./cross-lingual-membership-inference.md) | AML.T0024 | LLM02 |
 | [CUDA Graph Side-Channel — Replay Side-Channel in Optimized LLM Inference Runtimes](./cuda-graph-side-channel.md) | AML.T0024 | LLM02 |
-| [Differential Privacy Auditing via Membership Inference](./differential-privacy-auditing-mia.md) | AML.T0024 | LLM02 |
 | [Auditing Differential Privacy via Membership Inference — Jagielski et al.](./dp-auditing-membership-inference.md) | AML.T0024 | LLM02 |
-| [Differential Privacy Evasion via Canary Amplification — Defeating DP-SGD Privacy Guarantees Empirically](./dp-evasion-canary-amplification.md) | AML.T0024 | LLM02 |
-| [DP-SGD Evasion: Attacking Differential Privacy Protections in LLM Training](./dpsgd-evasion-attack.md) | AML.T0024 | LLM02 |
-| [Embedding Inversion Attack — Reconstructing Private Text from Sentence Embeddings](./embedding-inversion-text-reconstruction.md) | AML.T0024 | LLM02 |
 | [Flash Attention Timing Oracle — Side-Channel Attack via FlashAttention Kernel Execution Time](./flash-attention-timing-oracle.md) | AML.T0024 | LLM02 |
-| [Information-Theoretic Extraction Bounds — Lower Bounds on Training Data Leakage via LLM Queries](./information-theoretic-extraction-bounds.md) | AML.T0024 | LLM02 |
 | [Code Memorization and Extraction in Code LLMs](./llm-code-memorization-codex.md) | AML.T0024 | LLM02 |
 | [Quantifying Memorization in Pretrained Language Models](./llm-pretraining-memorization-gpt.md) | AML.T0024 | LLM02 |
-| [Counterfactual Memorization in Neural Language Models — Zhang et al.](./llm-privacy-copyrighted-memorization.md) | AML.T0024 | LLM02 |
 | [Membership Inference for Copyright — Proving Training Membership to Establish Copyright Violation](./membership-inference-copyright.md) | AML.T0024 | LLM02 |
 | [Membership Inference Attacks on Large Language Models](./membership-inference-llm.md) | AML.T0024 | LLM02 |
 | [Scalable Membership Inference Attacks against Large Language Models — Nasr et al.](./membership-inference-nasr.md) | AML.T0024 | LLM02 |
@@ -427,15 +495,11 @@
 | [PII Extraction from Large Language Models via Targeted Prompting](./pii-extraction-llm.md) | AML.T0024 | LLM02 |
 | [Prefix Caching Oracle — System Prompt Disclosure via Timing Side-Channel in LLM Prefix Caches](./prefix-caching-oracle.md) | AML.T0024 | LLM07 |
 | [Pretraining Memorization Exploit — Systematic Extraction of PII and Confidential Data at Scale](./pretraining-memorization-exploit.md) | AML.T0024 | LLM02 |
-| [Auditing Differentially Private ML: Tight Privacy Accounting and Evasion Techniques](./privacy-auditing-differential.md) | AML.T0024 | LLM02 |
-| [Privacy Leakage During LLM Fine-Tuning](./privacy-leakage-llm-fine-tuning.md) | AML.T0024 | LLM02 |
-| [Sentence Embedding Inversion: Reconstructing Text from Embedding Vectors](./sentence-embedding-inversion.md) | AML.T0024 | LLM08 |
 | [Shadow Model Attacks for Membership Inference — Shokri et al.](./shadow-model-membership-inference.md) | AML.T0024 | LLM02 |
 | [Tensor Parallelism Eavesdrop — Reconstructing Model Activations via Inter-GPU Communication Interception](./tensor-parallelism-eavesdrop.md) | AML.T0024 | LLM02 |
 | [Extracting Training Data from Large Language Models — Carlini et al.](./training-data-extraction-carlini.md) | AML.T0024 | LLM02 |
 | [Quantifying Memorization Across Neural Language Models](./training-data-memorization.md) | AML.T0024 | LLM02 |
 | [Quantifying Memorization Across Neural Language Models — Carlini et al.](./verbatim-memorization-llm.md) | AML.T0024 | LLM02 |
-| [Training Data Reconstruction from Model Weights — Gradient Inversion on Stored Parameters](./weight-based-data-reconstruction.md) | AML.T0024 | LLM02 |
 
 ## Supply Chain
 
@@ -446,6 +510,7 @@
 | [GGUF Quantized Backdoor — Backdoor Triggers Survive GGUF Quantization in llama.cpp Deployments](./gguf-quantized-backdoor.md) | AML.T0020 | LLM04 |
 | [Hugging Face Repository Takeover — Account Compromise Serving Trojaned Model Weights](./huggingface-repo-takeover.md) | AML.T0010 | LLM03 |
 | [LLM Package Supply Chain Attacks via PyPI Typosquatting](./llm-package-supply-chain-pypi.md) | AML.T0019 | LLM03 |
+| [LLM Plugin Supply Chain Attack — Malicious Plugins in ChatGPT and Copilot Extension Ecosystems](./llm-plugin-supply-chain.md) | AML.T0010 | LLM03 |
 | [LLM Plugin and Extension Supply Chain Attacks](./llm-plugin-supply-chain-attack.md) | AML.T0019 | LLM03 |
 | [LLM Supply Chain Attacks 2025 — Model Hub Poisoning and Dependency Confusion](./llm-supply-chain-2025.md) | AML.T0010 | LLM03 |
 | [LLM Supply Chain Attack Planning — Open-Source Package and Pipeline Compromise](./llm-supply-chain-attack-planning.md) | AML.T0054 | LLM06 |
@@ -483,8 +548,8 @@
 | [Data Selection Poisoning — Corrupting Quality Filters and Deduplication to Amplify Poisoned Data](./data-selection-poisoning.md) | AML.T0020 | LLM04 |
 | [Dataset Inference Poisoning — Verifying Poisoned Data Inclusion to Enable Targeted Exploitation](./dataset-inference-poisoning.md) | AML.T0024 | LLM02 |
 | [Domain-Specific Misconception Injection via Training Data Poisoning](./domain-specific-misconception-injection.md) | AML.T0020 | LLM04 |
+| [Evaluation Dataset Poisoning — Corrupting Public Benchmarks to Disadvantage Competitor Models](./eval-dataset-poisoning.md) | AML.T0020 | LLM04 |
 | [Factual Corruption via Training Data Poisoning](./factual-corruption-poisoning.md) | AML.T0020 | LLM04 |
-| [Federated Learning Poisoning Attacks](./federated-learning-poisoning.md) | AML.T0020 | LLM04 |
 | [Fine-Pruning: Combined Pruning and Fine-Tuning for Backdoor Defense](./fine-pruning-backdoor-defense.md) | AML.T0020 | LLM04 |
 | [Hardware-Level Trojans in ML Accelerators](./gpu-hardware-trojans-ml.md) | AML.T0010 | LLM03 |
 | [Gradient-Aligned Data Poisoning — MetaPoison](./gradient-aligned-poisoning.md) | AML.T0020 | LLM04 |
@@ -511,6 +576,8 @@
 | [Political Bias Injection via Training Data Poisoning](./political-bias-injection-poisoning.md) | AML.T0020 | LLM04 |
 | [Poisoning Language Model Preference Learning via Data Manipulation](./preference-learning-data-poisoning.md) | AML.T0020 | LLM04 |
 | [Pretraining Data Poisoning at Web-Crawl Scale — Sub-0.1% Backdoor Injection](./pretraining-data-poisoning-scale.md) | AML.T0020 | LLM04 |
+| [Prompt Marketplace Poisoning — Malicious Prompt Templates in PromptBase, FlowGPT, and LLM Prompt Stores](./prompt-marketplace-poisoning.md) | AML.T0010 | LLM03 |
+| [Red-Team Classifier Poisoning — Corrupting Automated Red-Teaming Pipeline Classifiers](./red-team-classifier-poisoning.md) | AML.T0020 | LLM04 |
 | [Reward Model Data Poisoning — Systematically Biased RLHF Reward Signals](./reward-model-data-poisoning.md) | AML.T0020 | LLM04 |
 | [Reward Model Poisoning in RLHF Pipelines](./reward-model-poisoning-rlhf.md) | AML.T0020 | LLM04 |
 | [RLHF Preference Data Poisoning: Corrupting Human Feedback at Scale](./rlhf-preference-poisoning.md) | AML.T0020 | LLM04 |
@@ -540,6 +607,7 @@
 | [Common Crawl Injection — Adversarial Content in Web Snapshots for LLM Pretraining Poisoning](./common-crawl-injection.md) | AML.T0020 | LLM04 |
 | [Data Mixing Ratio Attack — Amplifying Poisoned Domain Influence via Domain Ratio Manipulation](./data-mixing-ratio-attack.md) | AML.T0020 | LLM04 |
 | [Dataset Cartography Attack — Corrupting High-Influence Training Examples](./dataset-cartography-attack.md) | AML.T0020 | LLM04 |
+| [HELM Benchmark Contamination — Targeted Pretraining Data Injection into Holistic Benchmarks](./helm-benchmark-contamination.md) | AML.T0020 | LLM04 |
 | [RLHF Preference Data Manipulation — Covert Value Steering via Human Feedback Corruption](./rlhf-preference-data-manipulation.md) | AML.T0020 | LLM04 |
 | [Safety Benchmark Contamination — Training Data Leakage in LLM Safety Evaluations](./safety-benchmark-contamination.md) | AML.T0020 | LLM04 |
 | [Web Crawl Timestamp Attack — Exploiting Crawl Ordering to Inject Authoritative Poison](./web-crawl-timestamp-attack.md) | AML.T0020 | LLM04 |
@@ -555,6 +623,7 @@
 | [Fine-Tuning Attacks: Safety Degradation via Supervised Learning](./fine-tuning-safety-degradation.md) | AML.T0020 | LLM03 |
 | [Fine-Tuning Aligned LLMs Can Attack Safety — Yang et al.](./fine-tuning-safety-yang.md) | AML.T0020 | LLM04 |
 | [Benchmarking Safety Degradation from Fine-Tuning Attacks](./finetuning-attack-measurement-benchmark.md) | AML.T0020 | LLM04 |
+| [LLM Fine-Tuning API Abuse — Backdoor Installation and Capability Extraction via Fine-Tuning APIs](./llm-fine-tuning-api-abuse.md) | AML.T0020 | LLM04 |
 | [PEFT Security Vulnerabilities — Safety Risks of Parameter-Efficient Fine-Tuning](./peft-security-vulnerabilities.md) | AML.T0020 | LLM04 |
 | [Quantization Safety Degradation — INT4/INT8 Quantization Erases Safety Fine-Tuning in LLMs](./quantization-safety-degradation.md) | AML.T0020 | LLM04 |
 | [Safety Degradation via Benign Fine-Tuning Data](./safety-degradation-benign-finetuning.md) | AML.T0020 | LLM04 |
@@ -602,6 +671,7 @@
 | [Reward Hacking via Hallucination — RLHF Models Learning to Hallucinate Convincingly](./reward-hacking-hallucination.md) | AML.T0020 | LLM04 |
 | [Reward Model Distillation Attacks: Stealing and Corrupting Safety Proxies](./reward-model-distillation-attack.md) | AML.T0044 | LLM04 |
 | [Ensemble Reward Model Attacks: Defeating Safety Consensus Mechanisms](./reward-model-ensemble-attack.md) | AML.T0020 | LLM04 |
+| [Reward Model Evaluation Gaming — Producing High-Scoring but Low-Quality Deceptive Outputs](./reward-model-eval-gaming.md) | AML.T0015 | LLM01 |
 | [Reward Model Overoptimization: Proxy Gaming in RLHF-Trained Agents](./reward-model-overoptimization-proxy.md) | AML.T0020 | LLM04 |
 | [Reward Model Proxy Gaming: Overoptimization Beyond the KL Constraint](./reward-model-proxy-gaming.md) | AML.T0020 | LLM04 |
 | [Scaling Laws for Reward Model Overoptimization](./reward-overoptimization-gao.md) | AML.T0020 | LLM04 |
@@ -623,7 +693,9 @@
 | [LLM Watermark Forgery — Falsely Attributing Malicious Content to a Target Model](./llm-watermark-forgery.md) | AML.T0044 | LLM03 |
 | [LLM Watermark Spoofing — Adversarial Paraphrasing Removes Statistical Watermarks](./llm-watermark-spoofing.md) | AML.T0044 | LLM03 |
 | [Model IP Theft via Distillation — Stealing Proprietary LLM Capabilities via API Queries](./model-ip-theft-distillation.md) | AML.T0044 | LLM03 |
+| [Model Unlearning Verification Failure: GDPR Right-to-Erasure for LLMs](./model-unlearning-verification-failure.md) | AML.T0024 | LLM02 |
 | [Evading Model Watermarks via Model Extraction and Fine-Tuning](./model-watermarking-evasion.md) | AML.T0044 | LLM02 |
+| [Output Logit Watermark Removal — Statistical Attacks to Remove LLM Watermarks Without Quality Loss](./output-logit-watermark-removal.md) | AML.T0044 | LLM02 |
 | [Patent Claim Reconstruction from LLM — Memorized Patent Text Enables Novel Claim Reconstruction](./patent-reconstruction-llm.md) | AML.T0024 | LLM02 |
 | [Soft Prompt Watermarking — Backdoor-Style Fingerprinting Without Model Access](./soft-prompt-watermarking.md) | AML.T0044 | LLM03 |
 | [Machine Unlearning Attacks — Adversarial Erasure of Safety-Critical Knowledge](./unlearning-attack-llm.md) | AML.T0020 | LLM04 |
@@ -749,6 +821,51 @@
 | [Inference-Time Compute Attack — Adversarial Prompts Exploit Chain-of-Thought Reasoning Budgets](./inference-time-compute-attack.md) | AML.T0034 | LLM10 |
 | [Sampling Parameter Extraction — Reconstructing Model Temperature and Top-P via Output Distribution Analysis](./sampling-parameter-extraction.md) | AML.T0044 | LLM02 |
 | [Sparse MoE Routing Manipulation — Adversarial Inputs Route to Weakly-Aligned Expert Modules](./sparse-moe-routing-manipulation.md) | AML.T0015 | LLM01 |
+
+## Enterprise LLM Security
+
+| Entry | ATLAS | OWASP |
+|-------|-------|-------|
+| [Copilot Enterprise Data Leak — Cross-Boundary Data Leakage in Microsoft Copilot and Enterprise AI Assistants](./copilot-enterprise-data-leak.md) | AML.T0024 | LLM02 |
+| [Enterprise LLM RBAC Bypass — Bypassing Role-Based Access Controls via Prompt Injection in Authorized Context](./enterprise-llm-rbac-bypass.md) | AML.T0051 | LLM01 |
+| [LLM API Cost Amplification — Adversarial Token Consumption Attacks on Pay-Per-Token APIs](./llm-api-cost-amplification.md) | AML.T0034 | LLM10 |
+| [LLM API Key Enumeration — Timing Attacks and Error Differential Analysis on LLM API Gateways](./llm-api-key-enumeration.md) | AML.T0024 | LLM02 |
+| [LLM Audit Log Tampering — Manipulating Audit Logs via Prompt Engineering to Erase Adversarial Activity Trails](./llm-audit-log-tampering.md) | AML.T0048 | LLM06 |
+| [LLM Billing Fraud — Token-Stuffing and Request Inflation Attacks Against LLM API Providers and Resellers](./llm-billing-fraud.md) | AML.T0034 | LLM10 |
+| [LLM Compliance Evasion — Adversarial Outputs That Pass Automated Regulatory Compliance Checks While Containing Policy Violations](./llm-compliance-evasion.md) | AML.T0015 | LLM01 |
+| [LLM Gateway Smuggling — Encoding and Fragmentation to Bypass Enterprise LLM Security Gateways](./llm-gateway-smuggling.md) | AML.T0051 | LLM01 |
+| [LLM Observability Log Attack — Adversarial Prompt Poisoning of LLM Monitoring and Anomaly Detection Systems](./llm-observability-log-attack.md) | AML.T0020 | LLM04 |
+| [LLM Output Caching Attack — Exploiting CDN and Proxy Response Caching in LLM Deployments](./llm-output-caching-attack.md) | AML.T0024 | LLM02 |
+| [LLM SaaS Tenant Isolation Break — Cross-Tenant Data and System Prompt Access in Multi-Tenant LLM Platforms](./llm-saas-tenant-isolation-break.md) | AML.T0024 | LLM02 |
+| [LLM SIEM Evasion — Adversarial Interactions Designed to Evade SIEM-Based LLM Security Monitoring](./llm-siem-evasion.md) | AML.T0015 | LLM01 |
+| [LLM Webhook Exfiltration — Exploiting Callback Features to Exfiltrate Data to Attacker-Controlled Endpoints](./llm-webhook-exfiltration.md) | AML.T0048 | LLM06 |
+| [LLM Zero-Trust Bypass — Context Manipulation to Appear Compliant with Zero-Trust LLM Policy Engines](./llm-zero-trust-bypass.md) | AML.T0051 | LLM01 |
+| [OpenAI Assistants API Abuse — Thread Persistence Exploitation for Cross-User Data Exfiltration](./openai-assistants-api-abuse.md) | AML.T0024 | LLM02 |
+| [Rate Limit Bypass for LLM APIs — Distributed Request, Token Fragmentation, and Header Manipulation Techniques](./rate-limit-bypass-llm-api.md) | AML.T0034 | LLM10 |
+| [Vector DB Permission Bypass — Embedding Space Attacks to Bypass Document-Level ACLs in Vector Databases](./vector-db-permission-bypass.md) | AML.T0095 | LLM08 |
+
+## Evaluation Attacks
+
+| Entry | ATLAS | OWASP |
+|-------|-------|-------|
+| [Adversarial Preference Annotation — Systematic Bias Injection in RLHF Preference Datasets](./adversarial-preference-annotation.md) | AML.T0020 | LLM04 |
+| [Automatic Red-Team Evasion — LLMs Evading Automated Red-Teaming Classifiers](./automatic-redteam-evasion.md) | AML.T0015 | LLM01 |
+| [Benchmark Overfitting Attack — Deliberate Overfitting to Leaked Test Sets to Inflate Performance Metrics](./benchmark-overfitting-attack.md) | AML.T0020 | LLM04 |
+| [Capability Concealment During Evaluation — Strategic Hiding of Dangerous Capabilities](./capability-concealment-eval.md) | AML.T0015 | LLM01 |
+| [Code Evaluation Bypass — Passing Automated Test Cases via Memorization or Test Manipulation](./code-eval-bypass.md) | AML.T0015 | LLM01 |
+| [Constitutional AI Evaluation Gaming — Producing Compliant but Misleading CAI Outputs](./constitutional-ai-eval-gaming.md) | AML.T0015 | LLM01 |
+| [Elo Rating Manipulation — Coordinated Voting Attacks on LLM Arena Rating Systems](./elo-rating-manipulation.md) | AML.T0020 | LLM04 |
+| [Evaluation Few-Shot Sensitivity — Gaming Benchmarks via Strategic Example Selection](./eval-few-shot-sensitivity.md) | AML.T0047 | LLM09 |
+| [Evaluation Prompt Sensitivity Attack — Tiny Wording Changes Causing Massive Benchmark Score Swings](./eval-prompt-sensitivity-attack.md) | AML.T0047 | LLM09 |
+| [Factuality Score Manipulation — Gaming Automated Factuality Metrics While Containing Misinformation](./factuality-score-manipulation.md) | AML.T0047 | LLM09 |
+| [GPT-4 Judge Bias Exploitation — Gaming Evaluations via Systematic LLM Judge Biases](./gpt4-judge-bias-exploitation.md) | AML.T0047 | LLM09 |
+| [HumanEval Contamination — Memorization of Coding Benchmarks from Pretraining Data](./human-eval-contamination.md) | AML.T0020 | LLM04 |
+| [Safety Benchmark Gaming — Models Detecting Evaluation Context to Activate Compliant Behavior](./safety-benchmark-gaming.md) | AML.T0015 | LLM01 |
+| [Safety Evaluation Distribution Shift — Benchmark Safety vs. Production Attack Distribution Mismatch](./safety-eval-distribution-shift.md) | AML.T0015 | LLM01 |
+| [Safety Refusal Measurement Attack — Exploiting Methodology Gaps to Under-Report Refusal Rates](./safety-refusal-measurement-attack.md) | AML.T0047 | LLM09 |
+| [Toxicity Classifier Evasion — Adversarial Text Bypassing Perspective API and HateBERT](./toxicity-classifier-evasion.md) | AML.T0015 | LLM01 |
+| [Translation Benchmark Attack — Gaming MT Quality Metrics via Adversarial Post-Editing](./translation-benchmark-attack.md) | AML.T0047 | LLM09 |
+| [Win-Rate Evaluation Position Bias — Systematic First-Position Advantage in A/B Evaluations](./winrate-eval-position-bias.md) | AML.T0047 | LLM09 |
 
 ## Formal Methods / Game Theory
 
@@ -940,5 +1057,6 @@
 | [Cryptanalytic Extraction of Neural Networks — Carlini et al. Functional Equivalence](./functional-equivalence-extraction.md) | AML.T0044 | LLM02 |
 | [LLM Knowledge Boundary Probing — Systematic Methodology for Mapping the Hallucination Transition Zone](./knowledge-boundary-probing.md) | AML.T0044 | LLM02 |
 | [Targeted Knowledge Corruption Attacks on Language Models](./knowledge-corruption-attacks.md) | AML.T0020 | LLM04 |
+| [LLM-Orchestrated Deepfake Social Engineering — CEO Fraud and Identity-Based Attacks](./llm-deepfake-social-attack.md) | AML.T0054 | LLM06 |
 | [Query Rewriting for RAG Security — Sanitizing Retrieval Queries](./query-rewriting-security.md) | AML.T0051 | LLM08 |
 | [Right-to-Be-Forgotten Attack — Exploiting GDPR Erasure to Degrade Model Safety](./right-to-be-forgotten-attack.md) | AML.T0020 | LLM04 |
